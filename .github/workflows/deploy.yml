@@ -3,31 +3,37 @@ name: Deploy Jekyll site to Pages
 on:
   push:
     branches:
-      - main
+      - main  # 监听 main 分支的 push
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+
     steps:
+      # 拉取仓库代码
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 安装 Ruby
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
 
+      # 安装 Jekyll 依赖
       - name: Install dependencies
         run: |
           gem install bundler
           bundle install
 
+      # 构建 Jekyll 网站
       - name: Build site
         run: bundle exec jekyll build
 
+      # 部署到 GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          branch: main  # GitHub Pages 分支
+          publish_dir: ./_site   # Jekyll 输出目录
+          branch: main           # Pages 分支，通常 main
