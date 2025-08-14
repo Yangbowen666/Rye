@@ -14,6 +14,7 @@ footer_text: >
 keywords: academic, publications, projects, portfolio
 lang: en
 icon: ⚛️
+
 url: https://Yangbowen666.github.io
 baseurl: /Rye
 last_updated: true
@@ -26,3 +27,6 @@ author:
   github: Yangbowen666
   scholar: abc123
   twitter: your_twitter_username
+
+# 避免 download-3rd-party.rb 插件报错
+third_party_libraries: {}
