@@ -2,34 +2,34 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: 杨博文
-first_name: 博文
+title: Bowen Yang
+first_name: Bowen
 middle_name:
-last_name: 杨
+last_name: Yang
 contact_note: >
-  欢迎通过电子邮件或 GitHub 联系我。
+  You can reach me via email or GitHub.
 description: >
-  科研人员个人主页，展示论文、项目和最新动态。
+  Academic personal website, showcasing publications, projects, and news.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
   Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-keywords: 科研, 论文, 项目, 学术主页
-lang: zh
+keywords: academic, publications, projects, portfolio
+lang: en
 icon: ⚛️
 
 url: https://Yangbowen666.github.io
-baseurl: /Rye # 你的仓库名，如果网站部署在根目录可留空 ""
+baseurl: /Rye
 last_updated: true
 impressum_path:
 back_to_top: true
 
 author:
-  name: 杨博文
+  name: Bowen Yang
   email: your_email@example.com
   github: Yangbowen666
   scholar: abc123 # Google Scholar ID
-  twitter: your_twitter_username # 如果没有可以删除这一行
+  twitter: your_twitter_username
 
 
 # -----------------------------------------------------------------------------
