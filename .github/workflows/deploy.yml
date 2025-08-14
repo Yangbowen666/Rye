@@ -10,27 +10,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 拉取仓库代码
+      # 1. 拉取仓库代码
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 安装 Ruby
+      # 2. 安装 Imagemagick（解决 convert 命令找不到的问题）
+      - name: Install Imagemagick
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+
+      # 3. 安装 Ruby
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
 
-      # 安装 Jekyll 依赖
+      # 4. 安装 Jekyll 依赖
       - name: Install dependencies
         run: |
           gem install bundler
           bundle install
 
-      # 构建 Jekyll 网站
+      # 5. 构建 Jekyll 网站
       - name: Build site
         run: bundle exec jekyll build
 
-      # 部署到 GitHub Pages
+      # 6. 部署到 GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
