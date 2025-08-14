@@ -1,4 +1,4 @@
-name: Deploy site
+name: Deploy al-folio site
 
 on:
   push:
@@ -66,19 +66,20 @@ jobs:
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
 
-      # 5️⃣ 安装依赖 & 构建
-      - name: Install and Build 🔧
+      # 5️⃣ 安装依赖 & 构建网站
+      - name: Install dependencies & Build 🔧
         run: |
           sudo apt-get update && sudo apt-get install -y imagemagick
           pip3 install --upgrade nbconvert
           export JEKYLL_ENV=production
+          bundle install
           bundle exec jekyll build
 
       # 6️⃣ Purge unused CSS（可选）
       - name: Purge unused CSS 🧹
         run: |
           npm install -g purgecss
-          purgecss -c purgecss.config.js
+          purgecss -c purgecss.config.js || echo "No purgecss.config.js found, skipping."
 
       # 7️⃣ 部署到 GitHub Pages
       - name: Deploy 🚀
